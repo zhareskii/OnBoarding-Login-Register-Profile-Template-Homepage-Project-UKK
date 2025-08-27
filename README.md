@@ -4,5 +4,8 @@ Nama: Arifzha Reski
 Kelas: XII RPL 2
 Presensi: 03
 
-VIDEO DEMO
-[![Demo Video]([https://img.youtube.com/vi/abcd1234/maxresdefault.jpg](https://github.com/zhareskii/OnBoarding-Login-Register-Profile-Template-Homepage-Project-UKK/issues/1#issue-3357979422))]
+## 🎬 Demo Aplikasi
+
+<video src="https://github.com/user-attachments/assets/a59744e1-377e-4d9f-90b2-341f122878e9"
+ controls="controls" width="600">
+</video>
