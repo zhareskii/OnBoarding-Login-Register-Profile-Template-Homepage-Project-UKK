@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'register_screen.dart';
 import 'home_screen.dart';
 import '../services/api_service.dart';
+import '../services/session_service.dart'; // Add this import
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -32,6 +33,13 @@ class _LoginScreenState extends State<LoginScreen> {
 
         if (response['status'] == 'success') {
           final userData = response['data'];
+          
+          // Save user session
+          await SessionService.saveUserSession(
+            username: userData['username'],
+            email: userData['email'],
+            role: userData['role'],
+          );
           
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
@@ -78,6 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
+  // Rest of the code remains the same...
   @override
   Widget build(BuildContext context) {
     return Scaffold(

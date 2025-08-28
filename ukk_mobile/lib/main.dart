@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/onboarding_screen.dart';
+import 'screens/splash_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -68,8 +68,16 @@ class MyApp extends StatelessWidget {
             borderSide: BorderSide(color: Color(0xFF8B4513), width: 2),
           ),
         ),
+        cardTheme: CardThemeData( // Changed from CardTheme to CardThemeData
+          color: Colors.white,
+          elevation: 4,
+          shadowColor: Colors.black.withOpacity(0.1),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+        ),
       ),
-      home: OnboardingScreen(),
+      home: SplashScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

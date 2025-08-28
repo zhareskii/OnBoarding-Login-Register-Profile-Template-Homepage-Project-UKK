@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import '../services/session_service.dart';
 import 'login_screen.dart';
 
 class OnboardingScreen extends StatelessWidget {
@@ -114,7 +115,9 @@ class OnboardingScreen extends StatelessWidget {
           ),
         ),
       ],
-      onDone: () {
+      onDone: () async {
+        // Mark that onboarding has been seen
+        await SessionService.setFirstTimeFalse();
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => LoginScreen()),
@@ -142,6 +145,14 @@ class OnboardingScreen extends StatelessWidget {
           fontWeight: FontWeight.w500,
         ),
       ),
+      onSkip: () async {
+        // Mark that onboarding has been seen when skipped
+        await SessionService.setFirstTimeFalse();
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => LoginScreen()),
+        );
+      },
       next: Container(
         padding: EdgeInsets.all(8),
         decoration: BoxDecoration(
